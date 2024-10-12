@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+        .upload-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .upload-container input[type="file"] {
+            display: none;
+        }
+        .upload-container label {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .upload-container label:hover {
+            background-color: #45a049;
+        }
+        .upload-container button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upload-container button:hover {
+            background-color: #45a049;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .image-box {
+            width: 45%;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Centered Page Title -->
+    <h1 class="center">Upload a Face Image</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="upload-container">
+            <label for="file-upload">Select File</label>
+            <input type="file" id="file-upload" name="file" accept="image/*" required>
+            <span class="file-name" id="file-name">No file chosen</span>
+            <button type="submit">Upload</button>
+        </div>
+    </form>
+
+    {% if image %}
+        <div class="center">
+            <h2>Uploaded Face</h2>
+            <img src="{{ url_for('static', filename=image) }}" alt="{{ model }} Output", style="width: 300px;">
+        </div>
+    {% endif %}
+
+    {% if output_images %}
+        <h2 class="center">Predicted Faces</h2>
+        <div class="container">
+            {% for model, output_image in output_images.items() %}
+                <div class="image-box">
+                    <h3>{{ model }}</h3>
+                    <img src="{{ url_for('static', filename=output_image) }}" alt="{{ model }} Output", style="width: 300px;">
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>

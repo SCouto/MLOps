@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Digit Image</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .upload-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label, input[type="submit"] {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            display: inline-block;
+        }
+        label:hover, input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .file-name {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        img {
+            max-width: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload a Digit Image</h1>
+
+    <form method="post" enctype="multipart/form-data" class="upload-container">
+        <label for="file-upload">Select File</label>
+        <input type="file" id="file-upload" name="file" accept="image/*" required>
+        <span class="file-name" id="file-name">No file chosen</span>
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if filename %}
+        <h2>Uploaded Image: {{ filename }}</h2>
+        <h2>Prediction: {{ prediction }}</h2>
+        <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+    {% endif %}
+
+    <script>
+        document.getElementById("file-upload").addEventListener("change", function() {
+            const fileName = this.files[0].name;
+            document.getElementById("file-name").textContent = fileName;
+        });
+    </script>
+</body>
+</html>
