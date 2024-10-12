@@ -82,4 +82,4 @@ def upload_file():
 if __name__ == '__main__':
     import logging
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, host='0.0.0.0')  # Ensure to bind to 0.0.0.0 for Docker
+    app.run(debug=True, host='0.0.0.0')

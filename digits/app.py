@@ -60,5 +60,7 @@ def uploaded_file(filename):
 
 # Only run if executed as a script (not imported as a module)
 if __name__ == '__main__':
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
     app.run(debug=True)
 
