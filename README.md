@@ -16,7 +16,7 @@ This is just a jupyter notebook environment. It has preloaded two scripts, one f
 ### Running the project
 
 ```shell
-docker build - jupyter-local .
+docker build -t jupyter-local .
 docker run -p 8888:8888 -v "$(pwd)":/home/jovyan/work jupyter-local
 ```
 
@@ -29,7 +29,7 @@ This project is a webapp that allows the user to upload an image and the model w
 ### Running the project
 
 ```shell
-docker build - digits-app .
+docker build -t digits-app .
 docker run -p 5005:5000 -v digits-app
 ```
 
@@ -42,7 +42,7 @@ This project is a webapp that allows the user to upload an image of a face and t
 ### Running the project
 
 ```shell
-docker build - faces-app .
+docker build -t faces-app .
 docker run -p 5010:5000 -v faces-app
 ```
 Then access http://localhost:5010
