@@ -47,3 +47,6 @@ docker run -p 5010:5000 -v faces-app
 ```
 Then access http://localhost:5010
 
+
+Note: There are hidden difficulties in this one, that's why this is optional
+
