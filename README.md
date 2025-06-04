@@ -30,7 +30,7 @@ This project is a webapp that allows the user to upload an image and the model w
 
 ```shell
 docker build -t digits-app .
-docker run -p 5005:5000 -v digits-app
+docker run -p 5005:5000 digits-app
 ```
 
 Then access http://localhost:5005
@@ -43,7 +43,7 @@ This project is a webapp that allows the user to upload an image of a face and t
 
 ```shell
 docker build -t faces-app .
-docker run -p 5010:5000 -v faces-app
+docker run -p 5010:5000 faces-app
 ```
 Then access http://localhost:5010
 
