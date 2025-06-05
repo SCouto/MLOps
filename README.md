@@ -1,3 +1,5 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/SCouto/MLOps)
+
 # MLOps
 
 This repo contains 3 projects.
